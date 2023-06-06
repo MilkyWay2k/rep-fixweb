@@ -196,7 +196,8 @@ hr {
     }
 
     .read-more-text {
-        text-align: left !important;
+        text-align: left;
+        font-size: 15px;
     }
 }
 
