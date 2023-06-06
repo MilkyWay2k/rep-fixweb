@@ -305,8 +305,8 @@ button a{
 }
 
 @media (max-width: 767px) {
-    .navbar-toggle {
-        margin-top: 15px;
+    .navbar-custom .navbar-brand {
+        margin-top: 2.5%;
     }
 }
 
