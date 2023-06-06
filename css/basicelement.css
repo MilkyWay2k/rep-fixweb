@@ -304,9 +304,9 @@ button a{
     background-color: #F8C765;
 }
 
-@media (min-width: 400px) {
-    .navbar-custom .navbar-brand {
-        margin-top: 2.5%;
+@media (max-width: 767px) {
+    .navbar-toggle {
+        margin-top: 15px;
     }
 }
 
