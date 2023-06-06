@@ -189,6 +189,13 @@ hr {
     margin-bottom: 1%;
 }
 
+@media (max-width: 767px) {
+    .collage {
+      border-radius: 50%;
+    }
+  }
+  
+
 .collage {
     position: relative;
     max-width: 100%;
