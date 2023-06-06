@@ -194,6 +194,10 @@ hr {
         width: 450px !important;
         height: 400px !important;
     }
+
+    .read-more-text {
+        text-align: center !important;
+    }
 }
 
 .collage {
