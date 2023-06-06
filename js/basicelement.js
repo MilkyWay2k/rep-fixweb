@@ -92,27 +92,12 @@ window.addEventListener('load', function() {
   // Set the initial active image
   image1.classList.add('active');
 
-  // Apply round clipping to images on mobile devices
-  if (window.innerWidth < 768) {
-    applyRoundClipping(image1);
-    applyRoundClipping(image2);
-  }
-
   // Start the animation loop
   setInterval(function() {
     // Toggle the active class on the images
     image1.classList.toggle('active');
     image2.classList.toggle('active');
   }, 5000); // Change images every 5 seconds
-
-  // Helper function to apply round clipping to an image
-  function applyRoundClipping(image) {
-    var imageWidth = image.width;
-    var imageHeight = image.height;
-    var imageSize = Math.min(imageWidth, imageHeight);
-    var clipPathValue = 'circle(' + imageSize / 2 + 'px at center)';
-    image.style.clipPath = clipPathValue;
-  }
 });
 
 
