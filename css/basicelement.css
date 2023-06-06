@@ -308,6 +308,10 @@ button a{
     .navbar-custom .navbar-brand {
         margin-top: 2.5%;
     }
+
+    .navbar-toggle {
+        margin-top: 15px;
+    }
 }
 
 .navbar-custom .navbar-brand {
