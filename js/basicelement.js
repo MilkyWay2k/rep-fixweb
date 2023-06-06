@@ -69,6 +69,19 @@ function closeContainer(container, shortText, fullText) {
   fullText.style.maxHeight = '0';
 }
 
+window.onload = function() {
+  // Получаем элемент h3 с id "changeTitle"
+  var changeTitleHeader = document.getElementById('changeTitle');
+
+  // Получаем содержимое заголовка h3
+  var newTitle = changeTitleHeader.textContent;
+
+  // Добавляем префикс к новому заголовку
+  var fullTitle = "БАРХАТНЫЕ ТЯГИ | " + newTitle;
+
+  // Устанавливаем новый заголовок страницы
+  document.title = fullTitle;
+};
 
 
 
