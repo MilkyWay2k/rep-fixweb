@@ -189,11 +189,22 @@ hr {
     margin-bottom: 1%;
 }
 
+@media (max-width: 767px) {
+    .collage {
+      border-radius: 50%;
+    }
+  }
+  
+
 .collage {
     position: relative;
     max-width: 100%;
     width: 450px;
     height: 590px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px #001F23;
+    margin-top: 4.5%;
+    margin-bottom: 1%;
     overflow: hidden;
   }
   
@@ -205,12 +216,11 @@ hr {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    clip-path: circle(50% at center);
   }
   
   .collage img.active {
     opacity: 1;
-  }  
+  }
   
 
 .arrow-img {
