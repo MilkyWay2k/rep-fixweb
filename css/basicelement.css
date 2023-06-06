@@ -201,6 +201,15 @@ hr {
     }
 }
 
+@media (max-width: 991px) {
+    .collage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+
 .collage {
     position: relative;
     max-width: 100%;
