@@ -83,6 +83,22 @@ window.onload = function() {
   document.title = fullTitle;
 };
 
+// Wait for the page to load
+window.addEventListener('load', function() {
+  // Get the images
+  var image1 = document.getElementById('image1');
+  var image2 = document.getElementById('image2');
+
+  // Set the initial active image
+  image1.classList.add('active');
+
+  // Start the animation loop
+  setInterval(function() {
+    // Toggle the active class on the images
+    image1.classList.toggle('active');
+    image2.classList.toggle('active');
+  }, 5000); // Change images every 5 seconds
+});
 
 
 
