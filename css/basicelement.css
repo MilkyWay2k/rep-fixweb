@@ -234,8 +234,8 @@ hr {
 
 @media (max-width: 450px) {
     .img2 {
-        width: 450px !important;
-        height: 400px !important;
+        width: auto !important;
+        height: 300px !important;
     }
 }
   
