@@ -207,8 +207,8 @@ hr {
     height: 360px;
     border-radius: 50px;
     box-shadow: 0 0 20px #001F23;
-    margin-top: 4.5%;
-    margin-bottom: 1%;
+    margin-top: 3.5%;
+    margin-bottom: 1.5%;
 }
 
 @media (max-width: 991px) {
@@ -614,6 +614,10 @@ button a{
 .col-gray {
     background:#f3ead5;
     margin: 0;
+}
+
+.edit-padd {
+    padding: 15px 40px 15px;
 }
 
 .col-gray, .col-gray2 {
