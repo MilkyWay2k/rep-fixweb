@@ -70,35 +70,13 @@ function closeContainer(container, shortText, fullText) {
 }
 
 window.onload = function() {
-  // Получаем элемент h3 с id "changeTitle"
   var changeTitleHeader = document.getElementById('changeTitle');
-
-  // Получаем содержимое заголовка h3
   var newTitle = changeTitleHeader.textContent;
 
-  // Добавляем префикс к новому заголовку
   var fullTitle = "БАРХАТНЫЕ ТЯГИ | " + newTitle;
 
-  // Устанавливаем новый заголовок страницы
   document.title = fullTitle;
 };
-
-// Wait for the page to load
-window.addEventListener('load', function() {
-  // Get the images
-  var image1 = document.getElementById('image1');
-  var image2 = document.getElementById('image2');
-
-  // Set the initial active image
-  image1.classList.add('active');
-
-  // Start the animation loop
-  setInterval(function() {
-    // Toggle the active class on the images
-    image1.classList.toggle('active');
-    image2.classList.toggle('active');
-  }, 5000); // Change images every 5 seconds
-});
 
 
 
