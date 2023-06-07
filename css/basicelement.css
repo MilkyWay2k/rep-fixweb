@@ -189,9 +189,18 @@ hr {
     margin-bottom: 1%;
 }
 
+@media (max-width: 991px) {
+    .collage {
+      margin-left: auto;
+      margin-right: auto;
+      left: auto;
+      transform: none;
+    }
+  }
+
 @media (max-width: 767px) {
     .collage {
-        width: 450px !important;
+        width: 350px !important;
         height: 400px !important;
     }
 
@@ -199,16 +208,14 @@ hr {
         text-align: left;
         font-size: 15px;
     }
-}
+} 
 
-@media (max-width: 991px) {
+@media (max-width: 450px) {
     .collage {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        width: 450px !important;
+        height: 400px !important;
     }
-  }
-  
+}
 
 .collage {
     position: relative;
