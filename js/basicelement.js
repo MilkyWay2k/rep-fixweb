@@ -1,4 +1,3 @@
-// jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
@@ -7,7 +6,6 @@ $(window).scroll(function() {
     }
 });
 
-// Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
@@ -34,7 +32,6 @@ toggleButtons.forEach(function(button) {
     var fullText = container.querySelector('.full-text');
     var isOpen = textContainer.classList.contains('open');
 
-    // Закрыть предыдущий открытый блок
     var openContainers = document.querySelectorAll('.text-container.open');
     openContainers.forEach(function(openContainer) {
       if (openContainer !== textContainer) {
@@ -46,7 +43,6 @@ toggleButtons.forEach(function(button) {
       }
     });
 
-    // Открыть/закрыть текущий блок
     if (isOpen) {
       closeContainer(textContainer, shortText, fullText);
       button.innerHTML = originalButtonText;
@@ -79,10 +75,8 @@ window.onload = function() {
 };
 
 function textStyle() {
-  // Показываем оповещение
   alert("Поздравляю⭐ Вы нашли мою посхалку👏👏 Скоро вы увидите инсту создателя сайта, жду сообщений! Хотел бы пожелать удачи в учёбе и жизни💪");
 
-  // Через 5 секунд выполняем перенаправление
   setTimeout(function() {
       window.location.href = "https://www.instagram.com/cenya.shev/";
   }, 4000);
