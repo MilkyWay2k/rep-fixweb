@@ -211,6 +211,11 @@ hr {
     margin-bottom: 1.5%;
 }
 
+.edit-qr {
+    width: 300px !important;
+    height: 400px !important;
+}
+
 @media (max-width: 991px) {
     .collage {
       margin-left: auto;
