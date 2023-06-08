@@ -6,10 +6,6 @@ body {
     background-color: #F8C765;
 }
 
-.round-fav {
-    border-radius: 25px;
-}
-
 body > .wrapper { 
 	min-height:100%; padding:40px 0; 
 }
