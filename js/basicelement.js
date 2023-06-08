@@ -73,7 +73,7 @@ window.onload = function() {
   var changeTitleHeader = document.getElementById('changeTitle');
   var newTitle = changeTitleHeader.textContent;
 
-  var fullTitle = "БАРХАТНЫЕ ТЯГИ | " + newTitle;
+  var fullTitle = "ITMO UNIVERSITY | " + newTitle;
 
   document.title = fullTitle;
 };
