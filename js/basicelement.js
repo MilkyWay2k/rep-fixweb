@@ -98,6 +98,8 @@ var snakeGame = (function () {
       fruit = createFruit();
 
       direction = 'right';
+
+      gameLoopInterval = setInterval(gameLoop, 200);
   }
 
   function createSnakePart(x, y) {
@@ -149,56 +151,44 @@ var snakeGame = (function () {
       }
 
       if (x === parseInt(fruit.style.left) / CELL_SIZE && y === parseInt(fruit.style.top) / CELL_SIZE) {
-          var tail = createSnakePart(x, y);
-          snake.unshift(tail);
+          var tail = createSnakePart(parseInt(snake[snake.length - 1].style.left) / CELL_SIZE, parseInt(snake[snake.length - 1].style.top) / CELL_SIZE);
+          snake.push(tail);
           board.removeChild(fruit);
           fruit = createFruit();
-      } else {
-          var tail = snake.pop();
-          tail.style.left = (x * CELL_SIZE) + 'px';
-          tail.style.top = (y * CELL_SIZE) + 'px';
-          snake.unshift(tail);
       }
 
       for (var i = 1; i < snake.length; i++) {
-          var part = snake[i];
-          if (x === parseInt(part.style.left) / CELL_SIZE && y === parseInt(part.style.top) / CELL_SIZE) {
+          if (x === parseInt(snake[i].style.left) / CELL_SIZE && y === parseInt(snake[i].style.top) / CELL_SIZE) {
               gameOver();
               return;
           }
       }
-  }
 
-  function startGame() {
-      init();
-      gameLoopInterval = setInterval(gameLoop, 150);
-      document.querySelector('.start-button').style.display = 'none';
+      var tail = snake.pop();
+      tail.style.left = (x * CELL_SIZE) + 'px';
+      tail.style.top = (y * CELL_SIZE) + 'px';
+      snake.unshift(tail);
   }
 
   function gameOver() {
       clearInterval(gameLoopInterval);
-      document.querySelector('.game-over').style.display = 'flex';
+      var gameOverContainer = document.querySelector('.game-over');
+      gameOverContainer.style.display = 'flex';
+      setTimeout(function() {
+          gameOverContainer.style.display = 'none';
+          window.location.href = 'https://itmo-history.vercel.app/index.html';
+      }, 5000);
   }
 
   function changeDirection(newDirection) {
-      if (
-          (direction === 'up' && newDirection !== 'down') ||
-          (direction === 'down' && newDirection !== 'up') ||
-          (direction === 'left' && newDirection !== 'right') ||
-          (direction === 'right' && newDirection !== 'left')
-      ) {
-          direction = newDirection;
-      }
+      direction = newDirection;
   }
 
   return {
+      init: init,
       changeDirection: changeDirection
   };
 })();
-
-function startGame() {
-  snakeGame.startGame();
-}
 
 function textStyle1() {
   alert("Поздравляем, Вы нашли нашу пасхалку✨ Желаем Вам хорошего настроения и успехов в учебе🎉");
