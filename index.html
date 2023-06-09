@@ -75,6 +75,39 @@
     </div>
 </header>
 
+<div class="game-container">
+    <div class="game-board"></div>
+    <div class="game-over">
+        <div class="game-over-text">Вы проиграли!</div>
+    </div>
+</div>
+<div class="controls">
+    <div class="control-button" onclick="snakeGame.changeDirection('up')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M7 14l5-5 5 5z"/>
+            <path fill="none" d="M0 0h24v24H0z"/>
+        </svg>
+    </div>
+    <div class="control-button" onclick="snakeGame.changeDirection('left')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M14 7l-5 5 5 5V7z"/>
+            <path fill="none" d="M24 0v24H0V0h24z"/>
+        </svg>
+    </div>
+    <div class="control-button" onclick="snakeGame.changeDirection('right')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M10 17l5-5-5-5v10z"/>
+            <path fill="none" d="M0 0h24v24H0z"/>
+        </svg>
+    </div>
+    <div class="control-button" onclick="snakeGame.changeDirection('down')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M7 10l5 5 5-5z"/>
+            <path fill="none" d="M0 0h24v24H0z"/>
+        </svg>
+    </div>
+</div>
+
 <!-- Эбаут епта -->
 <section id="about" class="container-fluid content-section">
     <section class="container-fluid content-section about text-center">
