@@ -100,6 +100,8 @@ var snakeGame = (function () {
       direction = 'right';
 
       gameLoopInterval = setInterval(gameLoop, 200);
+
+      document.getElementById('startButton').style.display = 'none';
   }
 
   function createSnakePart(x, y) {
