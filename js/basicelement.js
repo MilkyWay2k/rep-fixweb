@@ -99,7 +99,7 @@ var snakeGame = (function () {
 
       direction = 'right';
 
-      gameLoopInterval = setInterval(gameLoop, 220);
+      gameLoopInterval = setInterval(gameLoop, 210);
 
       document.getElementById('startButton').style.display = 'none';
   }
