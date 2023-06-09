@@ -169,26 +169,26 @@ var snakeGame = (function () {
       }
   }
 
-  function changeDirection(newDirection) {
-      if (
-          (newDirection === 'up' && direction !== 'down') ||
-          (newDirection === 'down' && direction !== 'up') ||
-          (newDirection === 'left' && direction !== 'right') ||
-          (newDirection === 'right' && direction !== 'left')
-      ) {
-          direction = newDirection;
-      }
-  }
-
   function startGame() {
-      document.querySelector('.controls').style.display = 'none';
       init();
-      gameLoopInterval = setInterval(gameLoop, 200);
+      gameLoopInterval = setInterval(gameLoop, 150);
+      document.querySelector('.start-button').style.display = 'none';
   }
 
   function gameOver() {
       clearInterval(gameLoopInterval);
       document.querySelector('.game-over').style.display = 'flex';
+  }
+
+  function changeDirection(newDirection) {
+      if (
+          (direction === 'up' && newDirection !== 'down') ||
+          (direction === 'down' && newDirection !== 'up') ||
+          (direction === 'left' && newDirection !== 'right') ||
+          (direction === 'right' && newDirection !== 'left')
+      ) {
+          direction = newDirection;
+      }
   }
 
   return {
