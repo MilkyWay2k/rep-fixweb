@@ -57,36 +57,40 @@
 <!-- Середина,ниже названия -->
 <header class="intro" id="intro">
     <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading small-int">ЛИТМО в Людях</h1>
-                    <main class="container-anim">
-                        <p>Hello 👋</p>
-                        <section class="animation">
-                          <div class="first"><div>Everyone</div></div>
-                          <div class="second"><div>Students</div></div>
-                          <div class="third"><div>World</div></div>
-                        </section>
-                    </main>
-                </div>
+        <div class="game-container">
+            <div class="game-board"></div>
+            <div class="game-over">
+                <div class="game-over-text">Вы проиграли!</div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="control-button" onclick="snakeGame.changeDirection('up')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M7 14l5-5 5 5z"/>
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                </svg>
+            </div>
+            <div class="control-button" onclick="snakeGame.changeDirection('left')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M14 7l-5 5 5 5V7z"/>
+                    <path fill="none" d="M24 0v24H0V0h24z"/>
+                </svg>
+            </div>
+            <div class="control-button" onclick="snakeGame.changeDirection('right')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M10 17l5-5-5-5v10z"/>
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                </svg>
+            </div>
+            <div class="control-button" onclick="snakeGame.changeDirection('down')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M7 10l5 5 5-5z"/>
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                </svg>
             </div>
         </div>
     </div>
 </header>
-
-<!-- Эбаут епта -->
-<section id="about" class="container-fluid content-section">
-    <section class="container-fluid content-section about text-center">
-        <div class="col-lg-7 col-lg-offset-2">
-            <h2>About</h2>
-            <p>Университет ЛИТМО – это один из наиболее успешных технических университетов в России, обладающий величайшей историей. На данном сайте содержится информация об основоположниках и известных сотрудниках университета, которые задавали новые тенденции развития науки в этих стенах.
-                <br>
-                <br>
-                <span onmouseover="textStyle1()">Ленинградский</span> институт техники, механики и оптики (ЛИТМО) был одним из ведущих учебных заведений в СССР, который специализировался  на развитии науки и техники, выпускал высококвалифицированных специалистов в этих областях. Преподаватели ВУЗа, их заслуги и достижения за время работы говорят о том, что ЛИТМО и ИТМО в наше время – университет, из которого выпустился целый ряд выдающихся и великих людей.</p>
-        </div>
-    </section>
-</section>
 
 <!-- ДАЛЬШЕ НЕ НУЖНАЯ ХРЕНЬ (скрипты и плагины), ЕЁ НЕ ТРОГАТЬ!-->
 

@@ -76,126 +76,121 @@ window.onload = function() {
 
 /////////////////////////
 
-
-
-var snakeGame = (function() {
+var snakeGame = (function () {
   var BOARD_SIZE = 16;
   var CELL_SIZE = 20;
 
+var board;
+var snake;
+var fruit;
+var direction;
+var gameLoopInterval;
 
-  var board;
-  var snake;
-  var fruit;
-  var direction;
-  var gameLoopInterval;
+function init() {
+  board = document.querySelector('.game-board');
+  board.style.width = (BOARD_SIZE * CELL_SIZE) + 'px';
+  board.style.height = (BOARD_SIZE * CELL_SIZE) + 'px';
 
-  function init() {
-      board = document.querySelector('.game-board');
-      board.style.width = (BOARD_SIZE * CELL_SIZE) + 'px';
-      board.style.height = (BOARD_SIZE * CELL_SIZE) + 'px';
+  snake = [];
+  var head = createSnakePart(8, 8);
+  snake.push(head);
 
-      snake = [];
-      var head = createSnakePart(8, 8);
-      snake.push(head);
+  fruit = createFruit();
 
+  direction = 'right';
+
+  gameLoopInterval = setInterval(gameLoop, 200);
+}
+
+function createSnakePart(x, y) {
+  var part = document.createElement('div');
+  part.className = 'game-snake';
+  part.style.width = (CELL_SIZE - 4) + 'px';
+  part.style.height = (CELL_SIZE - 4) + 'px';
+  part.style.left = (x * CELL_SIZE) + 'px';
+  part.style.top = (y * CELL_SIZE) + 'px';
+  board.appendChild(part);
+  return part;
+}
+
+function createFruit() {
+  var x = Math.floor(Math.random() * BOARD_SIZE);
+  var y = Math.floor(Math.random() * BOARD_SIZE);
+  var fruit = document.createElement('div');
+  fruit.className = 'game-fruit';
+  fruit.style.width = CELL_SIZE + 'px';
+  fruit.style.height = CELL_SIZE + 'px';
+  fruit.style.left = (x * CELL_SIZE) + 'px';
+  fruit.style.top = (y * CELL_SIZE) + 'px';
+  board.appendChild(fruit);
+  return fruit;
+}
+
+function gameLoop() {
+  var head = snake[0];
+  var x = parseInt(head.style.left) / CELL_SIZE;
+  var y = parseInt(head.style.top) / CELL_SIZE;
+  switch (direction) {
+      case 'up':
+          y--;
+          break;
+      case 'down':
+          y++;
+          break;
+      case 'left':
+          x--;
+          break;
+      case 'right':
+          x++;
+          break;
+  }
+
+  if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) {
+      gameOver();
+      return;
+  }
+
+  if (x === parseInt(fruit.style.left) / CELL_SIZE && y === parseInt(fruit.style.top) / CELL_SIZE) {
+      var tail = createSnakePart(parseInt(snake[snake.length - 1].style.left) / CELL_SIZE, parseInt(snake[snake.length - 1].style.top) / CELL_SIZE);
+      snake.push(tail);
+      board.removeChild(fruit);
       fruit = createFruit();
-
-      direction = 'right';
-
-      gameLoopInterval = setInterval(gameLoop, 200);
   }
 
-  function createSnakePart(x, y) {
-      var part = document.createElement('div');
-      part.className = 'game-snake';
-      part.style.width = (CELL_SIZE - 4) + 'px';
-      part.style.height = (CELL_SIZE - 4) + 'px';
-      part.style.left = (x * CELL_SIZE) + 'px';
-      part.style.top = (y * CELL_SIZE) + 'px';
-      board.appendChild(part);
-      return part;
-  }
-
-  function createFruit() {
-      var x = Math.floor(Math.random() * BOARD_SIZE);
-      var y = Math.floor(Math.random() * BOARD_SIZE);
-      var fruit = document.createElement('div');
-      fruit.className = 'game-fruit';
-      fruit.style.width = CELL_SIZE + 'px';
-      fruit.style.height = CELL_SIZE + 'px';
-      fruit.style.left = (x * CELL_SIZE) + 'px';
-      fruit.style.top = (y * CELL_SIZE) + 'px';
-      board.appendChild(fruit);
-      return fruit;
-  }
-
-  function gameLoop() {
-      var head = snake[0];
-      var x = parseInt(head.style.left) / CELL_SIZE;
-      var y = parseInt(head.style.top) / CELL_SIZE;
-      switch (direction) {
-          case 'up':
-              y--;
-              break;
-          case 'down':
-              y++;
-              break;
-          case 'left':
-              x--;
-              break;
-          case 'right':
-              x++;
-              break;
-      }
-
-      if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) {
+  for (var i = 1; i < snake.length; i++) {
+      if (x === parseInt(snake[i].style.left) / CELL_SIZE && y === parseInt(snake[i].style.top) / CELL_SIZE) {
           gameOver();
           return;
       }
-
-      if (x === parseInt(fruit.style.left) / CELL_SIZE && y === parseInt(fruit.style.top) / CELL_SIZE) {
-          var tail = createSnakePart(parseInt(snake[snake.length - 1].style.left) / CELL_SIZE, parseInt(snake[snake.length - 1].style.top) / CELL_SIZE);
-          snake.push(tail);
-          board.removeChild(fruit);
-          fruit = createFruit();
-      }
-
-      for (var i = 1; i < snake.length; i++) {
-          if (x === parseInt(snake[i].style.left) / CELL_SIZE && y === parseInt(snake[i].style.top) / CELL_SIZE) {
-              gameOver();
-              return;
-          }
-      }
-
-      var tail = snake.pop();
-      tail.style.left = (x * CELL_SIZE) + 'px';
-      tail.style.top = (y * CELL_SIZE) + 'px';
-      snake.unshift(tail);
   }
 
-  function gameOver() {
-      clearInterval(gameLoopInterval);
-      var gameOverContainer = document.querySelector('.game-over');
-      gameOverContainer.style.display = 'flex';
-      setTimeout(function() {
-          gameOverContainer.style.display = 'none';
-          var gameContainer = document.querySelector('.game-container');
-          gameContainer.parentNode.removeChild(gameContainer);
-          var controls = document.querySelector('.controls');
-          controls.parentNode.removeChild(controls);
-      }, 5000);
-  }
+  var tail = snake.pop();
+  tail.style.left = (x * CELL_SIZE) + 'px';
+  tail.style.top = (y * CELL_SIZE) + 'px';
+  snake.unshift(tail);
+}
 
-  function changeDirection(newDirection) {
-      direction = newDirection;
-  }
+function gameOver() {
+  clearInterval(gameLoopInterval);
+  var gameOverContainer = document.querySelector('.game-over');
+  gameOverContainer.style.display = 'flex';
+  setTimeout(function() {
+      gameOverContainer.style.display = 'none';
+      // Redirect to another page
+      window.location.href = 'https://itmo-history.vercel.app/index.html';
+  }, 5000);
+}
 
-  return {
-      init: init,
-      changeDirection: changeDirection
-  };
+function changeDirection(newDirection) {
+  direction = newDirection;
+}
+
+return {
+  init: init,
+  changeDirection: changeDirection
+};
+
 })();
-
 snakeGame.init();
 
 
@@ -274,6 +269,7 @@ snakeGame.init();
 
 function textStyle1() {
   alert("Поздравляем, Вы нашли нашу пасхалку✨ Желаем Вам хорошего настроения и успехов в учебе🎉");
+  window.location.href = "https://itmo-history.vercel.app/game.html";
 }
 function textStyle2() {
   alert("Поздравлям⭐ Вы нашли нашу пасхалку👏👏 Вы очень внимательно читаете материал!👍");
