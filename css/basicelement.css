@@ -866,6 +866,14 @@ img::-moz-selection {
     font-weight: bold;
 }
 
+.score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 24px;
+}
+
 .controls {
     display: flex;
     justify-content: center;
@@ -905,13 +913,4 @@ img::-moz-selection {
     border-radius: 4px;
     padding: 10px 20px;
     cursor: pointer;
-}
-
-.score {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
 }
