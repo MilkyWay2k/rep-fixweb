@@ -176,7 +176,6 @@ function gameOver() {
   gameOverContainer.style.display = 'flex';
   setTimeout(function() {
       gameOverContainer.style.display = 'none';
-      // Redirect to another page
       window.location.href = 'https://itmo-history.vercel.app/index.html';
   }, 5000);
 }
