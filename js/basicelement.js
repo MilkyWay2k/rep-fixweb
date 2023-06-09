@@ -79,16 +79,12 @@ window.onload = function() {
 var snakeGame = (function () {
   var BOARD_SIZE = 16;
   var CELL_SIZE = 20;
-  var INITIAL_SPEED = 200;
-  var SPEED_INCREMENT = 10;
 
   var board;
   var snake;
   var fruit;
   var direction;
   var gameLoopInterval;
-  var score = 0;
-  var speed = INITIAL_SPEED;
 
   function init() {
       board = document.querySelector('.game-board');
@@ -103,7 +99,7 @@ var snakeGame = (function () {
 
       direction = 'right';
 
-      gameLoopInterval = setInterval(gameLoop, speed);
+      gameLoopInterval = setInterval(gameLoop, 200);
 
       document.getElementById('startButton').style.display = 'none';
   }
@@ -161,11 +157,6 @@ var snakeGame = (function () {
           snake.push(tail);
           board.removeChild(fruit);
           fruit = createFruit();
-          score++;
-          updateScore();
-          speed -= SPEED_INCREMENT;
-          clearInterval(gameLoopInterval);
-          gameLoopInterval = setInterval(gameLoop, speed);
       }
 
       for (var i = 1; i < snake.length; i++) {
@@ -184,18 +175,11 @@ var snakeGame = (function () {
   function gameOver() {
       clearInterval(gameLoopInterval);
       var gameOverContainer = document.querySelector('.game-over');
-      var gameOverText = document.querySelector('.game-over-text');
-      gameOverText.textContent = 'Вы проиграли! Очки: ' + score;
       gameOverContainer.style.display = 'flex';
       setTimeout(function() {
           gameOverContainer.style.display = 'none';
           window.location.href = 'https://itmo-history.vercel.app/index.html';
       }, 5000);
-  }
-
-  function updateScore() {
-      var scoreContainer = document.querySelector('.score-container');
-      scoreContainer.textContent = 'Очки: ' + score;
   }
 
   function changeDirection(newDirection) {
