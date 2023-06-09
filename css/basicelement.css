@@ -809,6 +809,7 @@ img::-moz-selection {
     width: 320px;
     height: 320px;
 }
+
 .game-board {
     position: relative;
     width: 100%;
@@ -872,4 +873,21 @@ img::-moz-selection {
 .control-button:hover {
     background-color: #fff;
     color: #000;
+}
+
+.start-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.start-button button {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
